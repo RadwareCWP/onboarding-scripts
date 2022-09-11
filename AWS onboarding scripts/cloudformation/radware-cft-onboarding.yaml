@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  RoleName:
+    Type: String
+    Description: The name of CNP onboarding role for your account
+    Default: RadwareCNP_Access
+    AllowedPattern: '.+'
+  ExternalID:
+    Type: String
+    Description: The external ID provided in the CNP portal (External ID)
+    AllowedPattern: '.+'
+  RadwareAWSAccountID:
+    AllowedPattern: '[0-9]*'
+    MinLength: '12'
+    MaxLength: '12'
+    Type: String
+    Description: The AWS account ID provided in the CNP portal (Radware AWS account ID)
+
+Description: "Radware CNP onboarding"
+
+Resources:
+  AssumeRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: !Ref RoleName
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action: 'sts:AssumeRole'
+            Sid: RadwareCNPOnboardingRole
+            Effect: Allow
+            Principal:
+              AWS: !Join [ '' , [ 'arn:aws:iam::' , !Ref RadwareAWSAccountID , ':root'] ]
+            Condition:
+              StringEquals:
+                'sts:ExternalId': !Ref ExternalID
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/SecurityAudit"
+        - "arn:aws:iam::aws:policy/AWSWAFReadOnlyAccess"
+
+Outputs:
+  OnboardingRoleARN:
+    Description: IAM role ARN to be assumed by CNP this account.
+    Value: !GetAtt AssumeRole.Arn
