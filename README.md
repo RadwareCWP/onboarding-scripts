@@ -18,6 +18,7 @@ CNP.
 for that purposes we provide the following options:
 
 - [Terraform onboarding guide](./AWS%20onboarding%20scripts/terraform/README.md)
+- [Cloudformation onboarding guide](./AWS%20onboarding%20scripts/cloudformation/README.md)
 
 Azure Subscriptions 
 -

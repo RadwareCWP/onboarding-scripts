@@ -11,50 +11,49 @@
 - API Key for aws cli login
 
 ## Template deployment
-
-To deploy this template using Terraform you will firstly need to login to your aws account
-using the API Key, to provide it you can run:
+### login to your aws account using the API Key:
 
 ```bash
   aws configure
 ```
 
-a prompt will request that you provide the following:
-- AWS Access Key ID
-- AWS Secret Access Key
-- Default region name
-- Default output format
+- a prompt will request that you provide the following:
+  - AWS Access Key ID
+  - AWS Secret Access Key
+  - Default region name
+  - Default output format
 
-afterwards you can run the Terraform template.
-you can use the following suggested process:
+afterwards you can deploy the Terraform template.
+### suggested template deployment process
 
-clone the repository or download the 'onboarding-cnp-aws.tf' file.
+- clone the repository or download the 'onboarding-cnp-aws.tf' file.
 
 ``` bash
 git clone https://github.com/RadwareCloudNativeProtector/onboarding-scripts.git
 ```
 
-navigate to the folder containing that file.
+- navigate to the folder containing that file (assuming you cloned the repository, this should be the path)
 ``` bash
-cd '.\AWS onboarding scripts\terraform\'
+cd '.\onboarding-scripts\AWS onboarding scripts\terraform\'
 ```
 
-create a terraform plan, and save the plan to apply later on
+- create a terraform plan, and save the plan to apply later on
 
 ```bash
   terraform plan -out onboarding-plan 
 ```
 
-the terraform will request that you set the following:
+### terraform will require that you set the following variable in the cli prompt:
 - The external ID provided in the CNP portal (External ID)
 - The AWS account ID provided in the CNP portal (Radware AWS account ID, must be valid or will throw an error)
 
-the AWS IAM role that will be created will be named 'Radware_CNP_TF'.
+note: the AWS IAM role default value 'Radware_CNP_TF', which can be overriden
 
+### terraform will take a couple of minutes to discover and plan the resource creation
+- review the plan's outputs and make sure they are correlated to the AWS Account and CNP tenant
 
-
-review the plan's outputs and make sure they are correlated to the AWS Account and CNP tenant
-now the plan has been created succsfully, all that is left is to apply the terraform plan
+### apply the template
+- now the plan has been created succsfully, all that is left is to apply the terraform plan
 
 ```bash
   terraform apply "onboarding-plan"
@@ -69,5 +68,5 @@ terraform plan -var="role_name=Radware_CNP" -var="external_id=<ID_PROVIDED_IN_CN
 
 #### example usage
 ```bash
-  terraform plan -var="role_name=Radware_CNP" -var="external_id=AHhYefFr34D123D" -var="radware_aws_account_id=1234567890" -out onboarding-plan
+  terraform plan -var="role_name=Radware_CNP" -var="external_id=AHhYefFr34D123D" -var="radware_aws_account_id=123456789012" -out onboarding-plan
 ```
