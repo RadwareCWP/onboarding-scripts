@@ -8,7 +8,6 @@ in here you will find IaC templates which can be used for the onboarding of your
 to CNP
 
 ## AWS Accounts 
--
 AWS Accounts onboarding requires a Read Only (SecurityAudit, AWSWAFReadOnlyAccess) permissions to the AWS resources, this will 
 allow CNP to query your AWS resources for Hardening warnings.
 
@@ -21,7 +20,6 @@ for that purposes we provide the following options:
 - [Cloudformation onboarding](./AWS%20onboarding%20scripts/cloudformation/)
 
 ## Azure Subscriptions 
--
 Azure Subscription onboarding requires a Read Only (Directory.Read.All, Microsoft.Network/networkWatchers/queryFlowLogStatus/action) permission to the Azure resources, this will 
 allow CNP to query your Azure resources for Hardening warnings.
 
