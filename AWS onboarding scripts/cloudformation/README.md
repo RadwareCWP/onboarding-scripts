@@ -1,5 +1,5 @@
 
-# AWS Cloud onboarding
+# AWS CloudFormation onboarding
 
 ## Template deployment
 
