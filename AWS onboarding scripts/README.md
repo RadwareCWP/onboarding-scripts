@@ -25,7 +25,19 @@ a prompt will request that you provide the following:
 - Default region name
 - Default output format
 
-afterwards you can run the Terraform template - you can use the following suggested process.
+afterwards you can run the Terraform template.
+you can use the following suggested process:
+
+clone the repository or download the 'onboarding-cnp-aws.tf' file.
+
+``` bash
+git clone https://github.com/RadwareCloudNativeProtector/onboarding-scripts.git
+```
+
+navigate to the folder containing that file.
+``` bash
+cd '.\AWS onboarding scripts\terraform\'
+```
 
 create a terraform plan, and save the plan to apply later on
 
