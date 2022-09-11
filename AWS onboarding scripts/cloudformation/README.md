@@ -6,7 +6,7 @@
 To deploy this template using CloudFormation you will firstly need to login to your aws account, 
 and then use one of the following methods to deploy the Cloud Formation Template.
 
-###  clone the repository to your workstation or download the cft template file
+###  clone the repository to your workstation or download the CloudFormation template file
 ``` bash
 git clone https://github.com/RadwareCloudNativeProtector/onboarding-scripts.git
 ```
