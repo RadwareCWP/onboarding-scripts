@@ -17,8 +17,7 @@ CNP.
 
 for that purposes we provide the following options:
 
-- [Terraform onboarding guide](terraform) 
-- [CloudFormation onboarding guide](cloudformation)
+- [Terraform onboarding guide](.\repository\onboarding-scripts\AWS onboarding scripts\README.md)
 
 Azure Subscriptions 
 -
@@ -29,4 +28,4 @@ in the process of onboarding of an Azure Subscription our IaC Template will crea
 
 for that purposes we provide the following options:
 
-- [Terraform onboarding guide](terraform)
+- [Terraform onboarding guide](.\repository\onboarding-scripts\Azure onboarding scripts\README.md)
